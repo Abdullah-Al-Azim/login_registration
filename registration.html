@@ -1,0 +1,101 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- iconify -->
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="log_reg.css" />
+    <title>Registration</title>
+  </head>
+  <body>
+    <div class="reg_____main">
+      <p class="sign" align="center">Sign Up</p>
+      <form class="form2">
+        <input class="un" type="text" align="center" placeholder="Username" />
+        <div class="first_____last_____name">
+          <input
+            class="name____f"
+            type="text"
+            align="center"
+            placeholder="First Name"
+          />
+          <input
+            class="name____f"
+            type="text"
+            align="center"
+            placeholder="Last Name"
+          />
+        </div>
+        <input
+          class="un"
+          type="number"
+          align="center"
+          placeholder="Phone Number"
+        />
+        <input class="un" type="email" align="center" placeholder="Email" />
+        <input
+          class="pass"
+          type="password"
+          align="center"
+          placeholder="Password"
+        />
+        <label class="pass" for="formUpload">Upload Profile Picture</label>
+        <input
+          class="upload____pro____pic"
+          id="formUpload"
+          name="uploads"
+          type="file"
+          onchange="forupload(this)"
+        />
+
+        <p class="pass" id="for-upload-name"></p>
+
+        <a class="submit" align="center">Sign Up</a>
+      </form>
+    </div>
+
+    <script>
+      const forfile = () => {
+        const FileName = document.querySelector("#formFileLg").value;
+
+        let docFileMain = FileName.split("\\");
+        docFileMain = docFileMain[docFileMain.length - 1];
+        document.querySelector("#for-doc-file-name").innerText = docFileMain;
+      };
+
+      function forupload(e) {
+        let fileVal = e.files[0].name;
+
+        document.querySelector("#for-upload-name").innerText = fileVal;
+        document.querySelector("#for-upload-name").style.display = "block";
+        document.querySelector("#for-upload-name").style.background = "#19361a";
+
+        if (fileVal) {
+          var elem = document.getElementById("for-upload-name");
+          var width = 1;
+          var id = setInterval(frame, 10);
+          function frame() {
+            if (width >= 74) {
+              clearInterval(id);
+            } else {
+              width++;
+              elem.style.width = width + "%";
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
